@@ -3,6 +3,9 @@ const createBtn = document.querySelector("[data-create]");
 const destroyBtn = document.querySelector("[data-destroy]");
 const divNumberInput = document.querySelector("[type='number']");
 
+let divWidth = 30;
+let divHeight = 30;
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
@@ -12,8 +15,6 @@ function getRandomHexColor() {
 function createBoxes() {
   let amount = parseInt(divNumberInput.value);
   let divArray = [];
-  let divWidth = 30;
-  let divHeight = 30;
 
   for (let i = 1; i <= amount; i += 1) {
     let divElement = document.createElement("div");
@@ -33,6 +34,8 @@ function createBoxes() {
 function destroyBoxes() {
   parentDivElement.innerHTML = "";
   divNumberInput.value = "";
+  divWidth = 30;
+  divHeight = 30;
 }
 
 function enterBtnListener(event) {
